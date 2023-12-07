@@ -1,11 +1,12 @@
 import pandas as pd
 from functools import lru_cache
 import requests
+import os
 
 # Load data
 data = pd.read_csv('output_reddit_data_extracted_location_improved-1.csv')
 
-API_KEY = '***'
+GOOGLE_API_KEY = os.getenv("GOOGLE_MAPS_API_KEY")
 
 @lru_cache(maxsize=1024) 
 def geo_code(location: str):
